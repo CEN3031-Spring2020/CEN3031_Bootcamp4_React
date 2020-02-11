@@ -1,7 +1,6 @@
 import React from 'react';
 
-class Credit extends React.Component {
-	render() {
+const Credit = () => {
 		return (
 			<div className="credit">
 				<p>
@@ -10,6 +9,5 @@ class Credit extends React.Component {
 				</p>
 			</div>
 		);
-	}
-}
+};
 export default Credit;

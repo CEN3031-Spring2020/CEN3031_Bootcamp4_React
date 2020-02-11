@@ -22,21 +22,6 @@ If you aren't familiar with these technologies, please go through [this tutorial
 
 To get a basic introduction to JSX [**see the docs here**](https://reactjs.org/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [**here**](https://reactjs.org/docs/jsx-in-depth.html). In most cases, we will use JSX instead of Javascript to develop our application. 
 
-### Bootstrap 4 - Styling Templates
-While we could create our web application with just HTML, CSS, and Javascript, writing all of our styles from scratch would be tedious.
-
-Say we have an application that will be used by desktop, tablet, and mobile users alike. Our CSS would have to be responsive, changing the layout of the page depending on the user's device. Luckily, we have [Bootstrap](http://getbootstrap.com/), a responsive HTML/CSS/JS framework made by Twitter, to style our web applications. Bootstrap provides a [grid system](https://getbootstrap.com/docs/4.3/layout/grid/) for easy layout and many components that will give the application a clean, modern, and consistent look.
-
-Bootstrap's documentation is extensive, so don't worry about memorizing everything Bootstrap has to offer. If you understand the fundamentals of HTML and CSS, you should feel comfortable with the mechanics of the grid system and using classes to add styles to your HTML components. It'll be a better use of time to just refer back to the documentation whenever you need to add a new component to your webpage.
-
-**Getting Started - Bootstrap 4**  https://getbootstrap.com/docs/4.3/getting-started/introduction/
-
-**Resources**
-- [Bootstrap Style Guide](https://drive.google.com/file/d/1fumbJT-ln-WzrSY_ZEtN44WhAw2asyXF/view) created for course
-- Example Bootstrap Components and Layouts (https://getbootstrap.com/docs/4.3/examples/)
-- [Components](https://getbootstrap.com/docs/4.3/components/) - Look in the sidebar for additional components - buttons, input groups, toasts, forms, etc
-- [Feather](https://feathericons.com/) Open Source Icons
-
 ### Single-page Application
 In this course and project we will be building, a single-page application. A single-page applictation is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded. Most modern web development relies on single-page applications. 
 
@@ -79,7 +64,7 @@ Thus, only use React Components for implementing dynamic functionality when need
 
 ### REACT
 
-[**React**](https://reactjs.org/) is a JavaScript library for building user interfaces. Created by Facebook, Instagram, and the community. React is the V is View in the MVC architecture. React uses a compinent-based architecture to implemnt and manage the View of a web applciation. 
+[**React**](https://reactjs.org/) is a JavaScript library for building user interfaces. Created by Facebook, Instagram, and the community. React is the V is View in the MVC architecture. React uses a component-based architecture to implement and manage the View of a web application. 
 
 React makes it (relatively) easy to start building an application by extending HTML so that the markup can describe not only the static webpage but also dynamic behavior. 
 
@@ -92,7 +77,7 @@ Components are the basic building blocks of a React Application.As you think abo
 
 React components are small, reusable pieces of code that return a React element to be rendered to the page. A components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. 
 
- A React component can be one of two types: (1) a function component or (2) a class component. Sometimes you will hear different terms to describe these two types, like stateless and stateful. Function components are stateless and are often associated with the presentational concept. Class Components are stateful.
+ A React component can be one of two types: (1) a function component or (2) a class component. Generally speaking you will not need to write a class component moving forward as they have been replaced, however, it is still important to understand how they work since you will encounter them.
 
 The simplest version of React component is a plain JavaScript function that returns a React element:
 ```Javascript
@@ -115,18 +100,15 @@ ReactDOM.render(<Hello />, mountNode);
 ```
 This code creates a simple Hello Component and renders a modified `<h1>` tag and the name of the person passed in from another component.
 
-A class component is the predominant way to define a React component. It also acts like a function that receives props (i.e., data), but also considers a private internal state as input that controls the returned JSX. This private internal state is what gives React its reactive nature. When the state of a class component changes, React will re-render that component in the browser. Therefore, class components, take as input state and props, process them, and output to the DOM using the render() function. 
-
-Note: Class components can only change their internal state, not their properties.
+Class components used to be the predominant way to define a React component which required a changeable internal state. They have since been replaced by react [**hooks**](https://reactjs.org/docs/hooks-intro.html) which allow us to define this internal state inside of a normal functional component. Hooks are generally considered easier to reuse and easier to understand when compared to class components. Due to this the following examples will show both the class version and the refactored hooks version.
 
 [**Anatomy of a React Componnent**](https://codeburst.io/react-state-vs-props-explained-51beebd73b21)
 
 [React Components](https://reactjs.org/docs/react-component.html)  
 Component names should also always start with a capital letter (`<Wrapper/> not <wrapper/>`). See [**documentation**](https://reactjs.org/docs/components-and-props.html#rendering-a-component) for more information on rendering components.
 
-All react Components have the following featuress:
-- *render()* - Mandatory
-- *constructor()*
+All react Components have the following features:
+- *return()* - Mandatory
 - *Import* 
 - Usage *<component />* - Looks similar to an HTML Tag and is used by parent components to add the child component to your application
 - *Export* - Makes the componenet accessible for us in other parts of the application
@@ -183,8 +165,7 @@ class ChildComponent extends React.Component {
 ````
 and any other method in this class can reference the props using this.props.
 
-Props can be used to set the internal state based on a prop value in the con
-structor, like this:
+Props can be used to set the internal state based on a prop value in the constructor, like this:
 ````Javascript
 class ChildComponent extends React.Component {
   constructor(props) {
@@ -275,6 +256,42 @@ For this assignment you will be building upon our UF directory application by cr
     - *Search.js*  - This is a React Component that filters the contents of the list based on the user's input in the textbox
     - *ViewBuilding.js* - This is a React Component that allows us to view additional listing details for the current selected building             when a user clicks on a listing
 
+### Setup
+*Note: This is a big assignment, start early and work on getting simple things working first.* 
+
+To help us get started quickly, we will be using [create-react-app](https://github.com/facebook/create-react-app#creating-an-app), a template generator for creating React Applications quickly without having to install a ton of external dependencies. 
+
+First clone accept the assignment and clone the project to your machine. Then navigate to the assignment and run these commands in terminal to create a starter application my-app (note: you can change this to bootcamp4 if you like.)
+
+`npx create-react-app my-app`
+
+or
+
+`yarn create react-app my-app`
+
+or
+
+`npm init react-app my-app`
+
+2.  After the installation has finished you should be able to cd into the project directory. 
+
+3. Inside the newly created project, you can run some built-in commands:
+
+    `npm start` or `yarn start`
+
+    Runs the app in development mode.
+
+4. It should auto-open http://localhost:3000 in the browser after it starts up a server for you. If a browser doesn't open up, copy and paste this link into your web browser with a starter page.
+
+5. After this you should open the folder and replace the src file wit the file for this Bootcamp #4 github repo. You should then be able to see a listing of the building codes and buildings, search/filter textbox and space to output details about your project.
+
+6. One great resource we can use to help us with our css styling is [semantic-ui](https://react.semantic-ui.com/). This helps us import styles so we don't have to manually style everything. If you're interested in this (which I highly recommend) then you can get started [here](https://react.semantic-ui.com/usage).
+
+7. Use the starter code (e.g, create-react-app with Bootcamp #4 code you created in steps 1-3) to create a front-end interface with React.js to display listings, as well as the ability to add new listings and delete old ones. 
+
+**See Development Goals** below for specific implementation details for this project.
+
+
 #### Development Goals - To DO List:
 In this assignment, we are only focused on creating your front-end user interface to filter and display listings, as well as add new listings or delete existing listings.
 
@@ -286,7 +303,7 @@ As you develop the solution to this assignment you will need to complete at leas
 
 - BuildingList.js: *In this file you will*
     - create a filter on the building list constant that allows you to filter on the name of the building 
-    - display only the buldings the meet the filter criteria
+    - display only the buildings the meet the filter criteria
     - Create an onClick listener action that will allow you to click on a building name and capture the ID
 
 - Search.js: *In this file you will*
@@ -299,7 +316,7 @@ As you develop the solution to this assignment you will need to complete at leas
     - Return additional details of the building to be rendered on the screen for the user
 
 - Create two new components that allow you to add and remove elements from the list.
-    - AddBuilding.js - Add a buliding to the listings
+    - AddBuilding.js - Add a building to the listings
     - RemoveBuilding.js - remove a building from the listings
 
 - index.css - Style the User Interface of this app using CSS and Bootstrap 4 to make this app look professional and user friendly, e.g., 
@@ -308,58 +325,6 @@ As you develop the solution to this assignment you will need to complete at leas
     - search bar
     - buttons
     - card for viewing the selected listing (ViewBuilding.js)
-
-
-### Setup
-*Note: This is a big assignment, start early and work on getting simple things working first. **Remember the Baby Name App tutorial listed in the React section, provides a video tutorial walkthrough of many of the feaures you will be completing for this project.**
-
-1. Install Bootstrap 4, [there are 3  ways](https://getbootstrap.com/docs/4.3/getting-started/download/):
-   (1) npm install bootstrap (or yarn add bootstrap) - *Recommended*
-   -   Install other dependencies - see console log messages during install
-       -    `npm install bootstrap`
-       -    `npm install jquery@1.9.1`
-       -    `npm install typescript@*`
-       -    `npm install popper.js@^1.14.7`
-    
-    (2) through CDN 
-       -   simply add the link in head tag and script before closing body tag
-       -   see notes about additional CDNs for jQuery and Popper.js before it.
-    
-    (3) download - ***great for project*** not recommended for Bootcamp #4 project
-
-    [Bootstrap Style Guide](https://drive.google.com/file/d/1fumbJT-ln-WzrSY_ZEtN44WhAw2asyXF/view) created for course 
-    *You will use this later in the project when you start to style your page* 
-
-2. Install the [create-react-app](https://github.com/facebook/create-react-app#creating-an-app)
-To help us get started quickly, we will be using the create-react-app, a template generator for creating React Applciations quickly without having to install a ton of external dependencies. 
-
-Run the command in terminal to create a starter application my-app (note: you can change this to bootcamp4 if you like.)
-
-`npx create-react-app my-app`
-
-or
-
-`yarn create react-app my-app`
-
-or
-
-`npm init react-app my-app`
-
-3.  after it is installed, you should be able to cd into the project directory 
-
-4. Inside the newly created project, you can run some built-in commands:
-
-    `npm start` or `yarn start`
-
-    Runs the app in development mode.
-
-5. It should auto-open http://localhost:3000 in the browser after it starts up a server for you. If a browser doesn't open up, copy and paste this link into your web brower with a starter page.
-
-6. After this you should open the folder and replace the src file wit the file for this Bootcamp #4 github repo. You should then be able to see a listing of the building codes and buildings, search/filter texbox and space to output details about your project.
-
-7. Use the starter code (e.g, create-react-app with Bootcamp #4 code you created in steps 1-3) to create a front-end interface with React.js to display listings, as well as the ability to add new listings and delete old ones. 
-
-**See Development Goals** above for specific implemenetation details for this project.
 
 **Debugging Tips:** 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 
-class ViewBuilding extends React.Component {
-	render() {
+const ViewBuilding = () => {
 		return (
 			<div>
 				<p>
@@ -10,6 +9,5 @@ class ViewBuilding extends React.Component {
 				</p>
 			</div>
 		);
-	}
-}
+};
 export default ViewBuilding;

@@ -1,29 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filterText: '',
-      selectedBuilding: 0
-    };
-  }
+const App = (props) => {
+  const [filterText, setFilterText] = useState('');
+  const [selectedBuilding, setSelectedBuilding] = useState(0);
 
-  filterUpdate(value) {
+  const filterUpdate = (value) =>{
     //Here you will need to set the filterText property of state to the value passed into this function
-  }
+  };
 
-  selectedUpdate(id) {
+  const selectedUpdate = (id) => {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
-  }
+  };
 
-  render() {
-    
-    return (
+  return(
       <div className="bg">
         <div className="row">
           <h1>UF Directory App</h1>
@@ -41,7 +34,7 @@ class App extends React.Component {
                     </td>
                   </tr>
                   <BuildingList
-                    data={this.props.data}
+                      data={props.data}
                   />
                 </table>
               </div>
@@ -53,8 +46,8 @@ class App extends React.Component {
           <Credit />
         </main>
       </div>
-    );
-  }
-}
+  );
+};
+
 
 export default App;

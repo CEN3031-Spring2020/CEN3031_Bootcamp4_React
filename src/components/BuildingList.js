@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-class BuilingList extends React.Component {
-	render() {
+const BuildingList = (props) => {
 		//console.log('This is my directory file', this.props.data);
-		const { data } = this.props;
 
-		const buildingList = data.map(directory => {
+		const buildingList = props.data.map(directory => {
 			return (
 				<tr key={directory.id}>
 					<td>{directory.code} </td>
@@ -15,6 +13,5 @@ class BuilingList extends React.Component {
 		});
 
 		return <div>{buildingList}</div>;
-	}
-}
-export default BuilingList;
+};
+export default BuildingList;
