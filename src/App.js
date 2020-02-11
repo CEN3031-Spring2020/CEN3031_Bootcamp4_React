@@ -5,48 +5,48 @@ import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 
 const App = (props) => {
-  const [filterText, setFilterText] = useState('');
-  const [selectedBuilding, setSelectedBuilding] = useState(0);
+    const [filterText, setFilterText] = useState('');
+    const [selectedBuilding, setSelectedBuilding] = useState(0);
 
-  const filterUpdate = (value) =>{
-    //Here you will need to set the filterText property of state to the value passed into this function
-  };
+    const filterUpdate = (value) => {
+        //Here you will need to set the filterText property of state to the value passed into this function
+    };
 
-  const selectedUpdate = (id) => {
-    //Here you will need to update the selectedBuilding property of state to the id passed into this function
-  };
+    const selectedUpdate = (id) => {
+        //Here you will need to update the selectedBuilding property of state to the id passed into this function
+    };
 
-  return(
-      <div className="bg">
-        <div className="row">
-          <h1>UF Directory App</h1>
+    return (
+        <div className="bg">
+            <div className="row">
+                <h1>UF Directory App</h1>
+            </div>
+
+            <Search/>
+            <main>
+                <div className="row">
+                    <div className="column1">
+                        <div className="tableWrapper">
+                            <table className="table table-striped table-hover">
+                                <tr>
+                                    <td>
+                                        <b>Code Building</b>
+                                    </td>
+                                </tr>
+                                <BuildingList
+                                    data={props.data}
+                                />
+                            </table>
+                        </div>
+                    </div>
+                    <div className="column2">
+                        <ViewBuilding/>
+                    </div>
+                </div>
+                <Credit/>
+            </main>
         </div>
-
-        <Search/>
-        <main>
-          <div className="row">
-            <div className="column1">
-              <div className="tableWrapper">
-                <table className="table table-striped table-hover">
-                  <tr>
-                    <td>
-                      <b>Code Building</b>
-                    </td>
-                  </tr>
-                  <BuildingList
-                      data={props.data}
-                  />
-                </table>
-              </div>
-            </div>
-            <div className="column2">
-              <ViewBuilding />
-            </div>
-          </div>
-          <Credit />
-        </main>
-      </div>
-  );
+    );
 };
 
 
