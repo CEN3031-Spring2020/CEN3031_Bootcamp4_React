@@ -43,11 +43,11 @@ The MVC concept has many variations and often does not _exactly_ follow the patt
 You can think of a component as a small feature that makes up a piece of the user interface (e.g., buttons, newsfeeds, blogs, comments). Each of these components exist within the same space, yet interact independently from one another. Components have their own structure, their own methods and their own APIs. Components are also reusable and can be “pasted” into interfaces at will. The independent nature of components allows for developers to create a UI with many different moving parts.
 
 
-Facebook developers based component based architecture off of the concept of [**AJAX**](https://www.w3schools.com/xml/ajax_intro.asp) request, in which call to the server are made directly from the client-side, allowing for the [**DOM**](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) (Document Object Model) to be dynamically uploaded without the need to refersh the page.  Components each have their own interfaces that can make calls to the server and update their interfaces. Because components are independent, one component can refresh without affecting other components or the UI as a whole. Additional resources: [**Good DOM Explanation with pictures**](https://css-tricks.com/dom/) and [**DOM as defined by W3C**](https://www.w3.org/TR/DOM-Level-2-Core/introduction.html).
+Facebook developers based component based architecture off of the concept of [**AJAX**](https://www.w3schools.com/xml/ajax_intro.asp) request, in which call to the server are made directly from the client-side, allowing for the [**DOM**](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) (Document Object Model) to be dynamically uploaded without the need to refresh the page.  Components each have their own interfaces that can make calls to the server and update their interfaces. Because components are independent, one component can refresh without affecting other components or the UI as a whole. Additional resources: [**Good DOM Explanation with pictures**](https://css-tricks.com/dom/) and [**DOM as defined by W3C**](https://www.w3.org/TR/DOM-Level-2-Core/introduction.html).
 
 React.js, specifically, handles components in an extremely performance focused way. React.js uses something called a [**virtual DOM**](https://programmingwithmosh.com/react/react-virtual-dom-explained/) which uses a “diffing” algorithm to detect changes to a component and only render those changes, as opposed to re-rendering the entire component.
 
-*Differnce Between MVC and CBA*
+*Difference Between MVC and CBA*
 CBA also requires that all methods and APIs pertaining to a single component exist within that component’s structure, a JavaScript class. 
 
 MVC splits responsibilities of an application horizontally, e.g., separates structure, helper methods, and routing into different levels of the application. This results in a multi layered horizontal architecture. On the other hand, CBA splits them vertically, e.g., components contain all of design, logic, and helper methods within the within a single class and the same level of the architecture (generally the view).  This means that developers don’t have to spend much time trying to find which functions pertain to which parts of an application’s UI.
@@ -55,7 +55,7 @@ MVC splits responsibilities of an application horizontally, e.g., separates stru
 The purpose of MVC is ensure that each level of an application has it’s own separate responsibility, while the purpose of CBA is the encapsulate all of those responsibilities within one space.
 
 *Beware of Issues with CBA*
-One of CBA’s most glaring issues is a propensity towards over-engineering. While CBA encourages reusability and single-responsibility, it can often lead to bloated and polluted views. When using many components, there is the possibility that readability might actually become degraded.
+One of CBA’s most glaring issues is a propensity towards over-engineering. While CBA encourages re-usability and single-responsibility, it can often lead to bloated and polluted views. When using many components, there is the possibility that readability might actually become degraded.
 
  In the case of React.js, the library was created with the intention of being used in applications wherever needed. Essentially, you can “sprinkle” React components across several different parts of your UI. However, many developers treat React.js as a framework and engineer every. single. aspect of their UI as a component. This is unnecessary and self-indulgent. CBA should only be use in specific instances and does not need to dictate the entire structure of your application.
 
@@ -102,7 +102,7 @@ This code creates a simple Hello Component and renders a modified `<h1>` tag and
 
 Class components used to be the predominant way to define a React component which required a changeable internal state. They have since been replaced by react [**hooks**](https://reactjs.org/docs/hooks-intro.html) which allow us to define this internal state inside of a normal functional component. Hooks are generally considered easier to reuse and easier to understand when compared to class components. Due to this the following examples will show both the class version and the refactored hooks version.
 
-[**Anatomy of a React Componnent**](https://codeburst.io/react-state-vs-props-explained-51beebd73b21)
+[**Anatomy of a React Component**](https://codeburst.io/react-state-vs-props-explained-51beebd73b21)
 
 IMPORTANT - the following [tutorial](https://www.valentinog.com/blog/hooks/) reviews state differences between classes and hooks and is extremely important to follow.
 ####React Components
@@ -230,11 +230,11 @@ React certainly has a learning curve, and you should take some time going throug
 -- Export
 
 *State & Passing State in Hooks*
-- Passing State - 
-- refs - https://medium.com/@rossbulat/react-using-refs-with-the-useref-hook-884ed25b5c29
 - setting state -- https://reactjs.org/docs/hooks-state.html
+- Reusing stateful logic - https://reactjs.org/docs/hooks-custom.html
+- refs - https://medium.com/@rossbulat/react-using-refs-with-the-useref-hook-884ed25b5c29
 
-*State & Pasing State in classes*
+*State & Passing State in classes*
 -   Passing State - props
 -- https://reactjs.org/docs/react-component.html#props 
 -- https://reactjs.org/docs/render-props.html
@@ -263,7 +263,7 @@ For this assignment you will be building upon our UF directory application by cr
 #### In this GitHub Repository, you are given the following files
 *When using the [create-react-app](https://github.com/facebook/create-react-app) read the readMe to get a starter application up and running, you can replace the src file in the starter application with the src file from the Bootcamp #4 assignment repo*
 - *Data.js* - A list of buildings formatted to work with React and JSX to render the contents to the browser
-- *index.css* - A starter CSS templage for you to use for this project
+- *index.css* - A starter CSS template for you to use for this project
 - *app.css* - An empty file that we aren't using for this project but do not delete it as it will affect the functioning of your program
 - *index.js* - This file is used in creating the application file that you will be manipulating through the App.js file. This is where we have injected the data.js file and the building data that we pass around for the entire application.
 - *App.js* - This is the main application we are developing. The majority of our development will be in this file.
@@ -272,7 +272,7 @@ For this assignment you will be building upon our UF directory application by cr
     - It has a display box for printing out more details about the selected building
     - It imports and uses several React Component files to implement this functionality
 
-- React Component Files - *React use compoenents to organize and squirrel away functionality so that we can reuse it in multiple places. Ultimately, it allows our code to look cleaner and maximizes reusability for future developmen.*
+- React Component Files - *React use components to organize and squirrel away functionality so that we can reuse it in multiple places. Ultimately, it allows our code to look cleaner and maximizes reusability for future developmen.*
     - *BuildingList.js* - This is a React Component that prints the building code and the name to the screen
     - *Search.js*  - This is a React Component that filters the contents of the list based on the user's input in the textbox
     - *ViewBuilding.js* - This is a React Component that allows us to view additional listing details for the current selected building             when a user clicks on a listing
