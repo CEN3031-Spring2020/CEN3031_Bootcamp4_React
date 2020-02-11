@@ -282,7 +282,7 @@ For this assignment you will be building upon our UF directory application by cr
 
 To help us get started quickly, we will be using [create-react-app](https://github.com/facebook/create-react-app#creating-an-app), a template generator for creating React Applications quickly without having to install a ton of external dependencies. 
 
-First clone accept the assignment and clone the project to your machine. Then navigate to the assignment and run these commands in terminal to create a starter application my-app (note: you can change this to bootcamp4 if you like.)
+First accept the assignment and clone the project to your machine. Then navigate to the assignment and run one of these commands in the terminal to create a starter application my-app (note: you can change this to bootcamp4 if you like.)
 
 `npx create-react-app my-app`
 
@@ -294,7 +294,7 @@ or
 
 `npm init react-app my-app`
 
-2.  After the installation has finished you should be able to cd into the project directory. 
+2.  After the installation has finished you should be able to cd into the project directory (my-app). 
 
 3. Inside the newly created project, you can run some built-in commands:
 
@@ -302,9 +302,9 @@ or
 
     Runs the app in development mode.
 
-4. It should auto-open http://localhost:3000 in the browser after it starts up a server for you. If a browser doesn't open up, copy and paste this link into your web browser with a starter page.
+4. It should auto-open http://localhost:3000 in the browser after it starts up a server for you. If a browser doesn't open up, copy and paste this link into your web browser with a starter page. Once you have finished viewing this cancel the process running in the terminal with "ctrl+c".
 
-5. After this you should open the folder and replace the src file wit the file for this Bootcamp #4 github repo. You should then be able to see a listing of the building codes and buildings, search/filter textbox and space to output details about your project.
+5. After this you should open the project folder and replace the src file with the src folder given in this Bootcamp #4 github repo. If you run npm start again you should then be able to see a listing of the building codes and buildings, search/filter textbox, and space to output details about your project.
 
 6. One great resource we can use to help us with our css styling is [semantic-ui](https://react.semantic-ui.com/). This helps us import styles so we don't have to manually style everything. If you're interested in this (which I highly recommend) then you can get started [here](https://react.semantic-ui.com/usage).
 
