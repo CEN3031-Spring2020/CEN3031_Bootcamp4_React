@@ -9,11 +9,11 @@ const App = (props) => {
     const [selectedBuilding, setSelectedBuilding] = useState(0);
 
     const filterUpdate = (value) => {
-        //Here you will need to set the filterText property of state to the value passed into this function
+        //Here you can set the filterText property of state to the value passed into this function
     };
 
     const selectedUpdate = (id) => {
-        //Here you will need to update the selectedBuilding property of state to the id passed into this function
+        //Here you can update the selectedBuilding property of state to the id passed into this function
     };
 
     return (

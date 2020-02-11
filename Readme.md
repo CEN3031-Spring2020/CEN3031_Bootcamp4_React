@@ -104,14 +104,15 @@ Class components used to be the predominant way to define a React component whic
 
 [**Anatomy of a React Componnent**](https://codeburst.io/react-state-vs-props-explained-51beebd73b21)
 
-[React Components](https://reactjs.org/docs/react-component.html)  
-Component names should also always start with a capital letter (`<Wrapper/> not <wrapper/>`). See [**documentation**](https://reactjs.org/docs/components-and-props.html#rendering-a-component) for more information on rendering components.
+IMPORTANT - the following [tutorial](https://www.valentinog.com/blog/hooks/) reviews state differences between classes and hooks and is extremely important to follow.
+####React Components
+Component names should also always start with a capital letter (`<Wrapper/> not <wrapper/>`).
 
 All react Components have the following features:
 - *return()* - Mandatory
 - *Import* 
 - Usage *<component />* - Looks similar to an HTML Tag and is used by parent components to add the child component to your application
-- *Export* - Makes the componenet accessible for us in other parts of the application
+- *Export* - Makes the component accessible for us in other parts of the application
 
 Components classes
 ```Javascript
@@ -125,7 +126,7 @@ class Hello extends React.Component {
     };
   }
 
-  nameUpdate(value) {
+  updateName(value) {
        this.setState({
           nameText: value
     })
@@ -138,13 +139,28 @@ class Hello extends React.Component {
 }
 export default Hello;
 ```
+Component Hook
+```Javascript
+import React, {useState} from 'react';
+
+function Hello () {
+    const [nameText, setNameText] = useState('');
+
+    function updateName(value) {
+           setNameText(value);
+      }
+    
+    return <h1> Hello, {nameText}</h1>;
+}
+export default Hello;
+```
 This simple Hello Component takes in a value and when the nameUpdate function is called, it triggers a change state, and stores the name passed to it
 
 *Component Communication* -State vs Props
 
 In a React component, props carry data around your application. Props are variables passed to it by its parent component. State on the other hand are also variables, but directly initialized and managed by the component. The state can be initalized by props.
 
-The State and Props objects have one important difference. Inside a class component, the State object can be changed while the Props object represents fixed values.
+The State and Props objects have one important difference. Inside a hook or class component, the State object can be changed while the Props object represents fixed values.
 
 For example, a parent component might include a child component by calling
 ```Javascript
@@ -154,7 +170,7 @@ The parent can pass a prop by using this syntax:
 ```Javascript
 <ChildComponent color=green/>
 ````
-Inside the ChildComponent constructor we could access the prop:
+If ChildComponent were a class we could access the prop like:
 ```Javascript
 class ChildComponent extends React.Component {
   constructor(props) {
@@ -163,17 +179,14 @@ class ChildComponent extends React.Component {
   }
 }
 ````
-and any other method in this class can reference the props using this.props.
+If the ChildComponent were a functional component we could access the prop like:
+```Javascript
+function ChildComponet (props) {
+    console.log(props.color);
+}   
+```
+and any other method in this component can reference the props using props, in a class you would need to use this.props.
 
-Props can be used to set the internal state based on a prop value in the constructor, like this:
-````Javascript
-class ChildComponent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state.colorName = props.color
-  }
-}
-````
 Props should never be changed in a child component, so if there’s something going on that alters some variable, that variable should belong to the component state.
 
 Props are also used to allow child components to access methods defined in the parent component. This is a good way to centralize managing the state in the parent component, and avoid children to have the need to have their own state.
@@ -187,19 +200,22 @@ React certainly has a learning curve, and you should take some time going throug
 [**Thinking in React**](https://reactjs.org/docs/thinking-in-react.html) - This gives you an overview and philosophy for developing in React.
 [**React Developer Tools**](https://www.freecodecamp.org/news/how-to-see-your-react-state-props-in-the-browser-774098a50fcc/) Download the React Developer Tools Chrome Plug-in to help you debug your application or use the Chrome Developer Tools
 
-**Tutorials**
+####**Tutorials**
+
 *Getting Started: Creating a simple react app*
-[**Baby Name Tutorial**](https://www.youtube.com/playlist?list=PLHrxuCR-0CcT7hgVVlh0lBWTqYkEEF55m) This is a 12 part video tutorial that walks through how to create a simple web applicaiton. It is very similar to the app that you will create in this assignment. *NOTE: I highly recommend working throuhg this tutorial and adapting it to complete this assighment.*
+
+[**Basic App Tutorial**](https://www.youtube.com/watch?v=dGcsHMXbSOA) This is a quick video on how to build a simple web application. It has similar functionality to what you will be building for this assignment. *NOTE: I highly recommend working through this tutorial.*
 [**Create-react-app**](https://reactjs.org/docs/create-a-new-react-app.html) is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.
 
 **Other Tutorials**
 -   *Tutorialspoint*: [ReactJS Tutorial](https://www.tutorialspoint.com/reactjs/index.htm)
 -   *Code Academy*: [Learn ReactJS](https://www.codecademy.com/learn/react-101)
--   *Tutorial provided from the [*ReactJS website*](https://reactjs.org/tutorial/tutorial.htmll)
+-   *Tutorial provided from the* [*ReactJS website*](https://reactjs.org/tutorial/tutorial.html)
 -   *Egghead_io* [videos on ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-react)
 
 
 **React Concepts, you'll need for this bootcamp**
+
 **Note:** You _do not_ need to go through all of these, just start to get familiar enough with React-specific concepts to complete this assignment, particularly the following:
 
 *React Basics*
@@ -213,7 +229,12 @@ React certainly has a learning curve, and you should take some time going throug
 -- Import & Usage <component /> // Looks similar to an HTML Tag
 -- Export
 
-*State & Pasing State*
+*State & Passing State in Hooks*
+- Passing State - 
+- refs - https://medium.com/@rossbulat/react-using-refs-with-the-useref-hook-884ed25b5c29
+- setting state -- https://reactjs.org/docs/hooks-state.html
+
+*State & Pasing State in classes*
 -   Passing State - props
 -- https://reactjs.org/docs/react-component.html#props 
 -- https://reactjs.org/docs/render-props.html
@@ -298,8 +319,8 @@ In this assignment, we are only focused on creating your front-end user interfac
 As you develop the solution to this assignment you will need to complete at least the following tasks.  
 
 - App.js - Main Application
-    - Create the filterUpdate() function - to set the state of filter
-    - Create the selectUpdate() function - to set the state of selected building
+    - OPTIONAL (This can be done in multiple ways, but the state of filter does need to be set and updated somehow) Create the filterUpdate() function - to set the state of filter. 
+    - OPTIONAL (Same as above but with the selected building state) Create the selectUpdate() function - to set the state of selected building
 
 - BuildingList.js: *In this file you will*
     - create a filter on the building list constant that allows you to filter on the name of the building 
